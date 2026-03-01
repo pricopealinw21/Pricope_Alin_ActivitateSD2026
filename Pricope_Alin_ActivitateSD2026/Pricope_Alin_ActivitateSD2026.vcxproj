@@ -139,6 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LucruAcasa.c" />
+    <ClCompile Include="Politică.c" />
+    <ClCompile Include="Seminar02-Lucru_Acasa.cpp" />
     <ClCompile Include="Seminar02.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

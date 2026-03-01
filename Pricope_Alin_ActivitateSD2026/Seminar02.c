@@ -107,52 +107,54 @@ struct Biblioteca getPrimulElementConditionat(struct Biblioteca* vector,
 
     // daca nu gaseste, returnam unul gol
     return initializare(-1, 0, "Necunoscut", 0, 0);
+
+
 }
 
-int main() {
-
-    int nrTotalBiblioteci = 5;
-
-    struct Biblioteca* listaBiblioteci =
-        (struct Biblioteca*)malloc(sizeof(struct Biblioteca) * nrTotalBiblioteci);
-
-    listaBiblioteci[0] = initializare(1, 425, "Camil Petrecu", 482.95, 5);
-    listaBiblioteci[1] = initializare(2, 644, "Preda", 450.4, 1);
-    listaBiblioteci[2] = initializare(3, 133, "Creanga", 300.2, 2);
-    listaBiblioteci[3] = initializare(4, 951, "Slavici", 78.7, 5);
-    listaBiblioteci[4] = initializare(5, 7355, "Eminescu", 102.2, 2);
-
-    printf("VECTOR INITIAL:\n");
-    afisareVector(listaBiblioteci, nrTotalBiblioteci);
-
-    // Copiere primele N elemente
-    int nrElementeDeCopiat = 3;
-    struct Biblioteca* primeleElemente =
-        copiazaPrimeleNElemente(listaBiblioteci,
-            nrTotalBiblioteci,
-            nrElementeDeCopiat);
-
-    printf("\nPRIMELE %d ELEMENTE COPIATE:\n", nrElementeDeCopiat);
-    afisareVector(primeleElemente, nrElementeDeCopiat);
-
-    dezalocare(&primeleElemente, &nrElementeDeCopiat);
-
-    // Filtrare dupa suprafata
-    struct Biblioteca* biblioteciFiltrate = NULL;
-    int nrBiblioteciFiltrate = 0;
-
-    copiazaBibcuSupMare(listaBiblioteci,
-        nrTotalBiblioteci,
-        100,
-        &biblioteciFiltrate,
-        &nrBiblioteciFiltrate);
-
-    printf("\nBIBLIOTECI CU SUPRAFATA > 100:\n");
-    afisareVector(biblioteciFiltrate, nrBiblioteciFiltrate);
-
-    dezalocare(&biblioteciFiltrate, &nrBiblioteciFiltrate);
-
-    dezalocare(&listaBiblioteci, &nrTotalBiblioteci);
-
-    return 0;
-}
+//int main() {
+//
+//    int nrTotalBiblioteci = 5;
+//
+//    struct Biblioteca* listaBiblioteci =
+//        (struct Biblioteca*)malloc(sizeof(struct Biblioteca) * nrTotalBiblioteci);
+//
+//    listaBiblioteci[0] = initializare(1, 425, "Camil Petrecu", 482.95, 5);
+//    listaBiblioteci[1] = initializare(2, 644, "Preda", 450.4, 1);
+//    listaBiblioteci[2] = initializare(3, 133, "Creanga", 300.2, 2);
+//    listaBiblioteci[3] = initializare(4, 951, "Slavici", 78.7, 5);
+//    listaBiblioteci[4] = initializare(5, 7355, "Eminescu", 102.2, 2);
+//
+//    printf("VECTOR INITIAL:\n");
+//    afisareVector(listaBiblioteci, nrTotalBiblioteci);
+//
+//    // Copiere primele N elemente
+//    int nrElementeDeCopiat = 3;
+//    struct Biblioteca* primeleElemente =
+//        copiazaPrimeleNElemente(listaBiblioteci,
+//            nrTotalBiblioteci,
+//            nrElementeDeCopiat);
+//
+//    printf("\nPRIMELE %d ELEMENTE COPIATE:\n", nrElementeDeCopiat);
+//    afisareVector(primeleElemente, nrElementeDeCopiat);
+//
+//    dezalocare(&primeleElemente, &nrElementeDeCopiat);
+//
+//    // Filtrare dupa suprafata
+//    struct Biblioteca* biblioteciFiltrate = NULL;
+//    int nrBiblioteciFiltrate = 0;
+//
+//    copiazaBibcuSupMare(listaBiblioteci,
+//        nrTotalBiblioteci,
+//        100,
+//        &biblioteciFiltrate,
+//        &nrBiblioteciFiltrate);
+//
+//    printf("\nBIBLIOTECI CU SUPRAFATA > 100:\n");
+//    afisareVector(biblioteciFiltrate, nrBiblioteciFiltrate);
+//
+//    dezalocare(&biblioteciFiltrate, &nrBiblioteciFiltrate);
+//
+//    dezalocare(&listaBiblioteci, &nrTotalBiblioteci);
+//
+//    return 0;
+//}
