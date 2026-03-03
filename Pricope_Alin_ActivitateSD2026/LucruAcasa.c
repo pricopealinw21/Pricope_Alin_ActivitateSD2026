@@ -108,48 +108,48 @@ struct SectiePolitie getPrimulElementConditionat(struct SectiePolitie* vector,
     return initializare(-1, 0, "Necunoscut", 0, 0);
 }
 
-int main() {
-
-    int nrTotalSectii = 5;
-
-    struct SectiePolitie* listaSectii =
-        (struct SectiePolitie*)malloc(sizeof(struct SectiePolitie) * nrTotalSectii);
-
-    listaSectii[0] = initializare(1, 120, "Sectia Centrala", 500000.5, 1);
-    listaSectii[1] = initializare(2, 85, "Sectia Nord", 320000.0, 2);
-    listaSectii[2] = initializare(3, 60, "Sectia Sud", 210000.3, 3);
-    listaSectii[3] = initializare(4, 150, "Sectia Vest", 800000.7, 4);
-    listaSectii[4] = initializare(5, 95, "Sectia Est", 450000.2, 5);
-
-    printf("VECTOR INITIAL:\n");
-    afisareVector(listaSectii, nrTotalSectii);
-
-    int nrElementeDeCopiat = 3;
-    struct SectiePolitie* primeleElemente =
-        copiazaPrimeleNElemente(listaSectii,
-            nrTotalSectii,
-            nrElementeDeCopiat);
-
-    printf("\nPRIMELE %d ELEMENTE COPIATE:\n", nrElementeDeCopiat);
-    afisareVector(primeleElemente, nrElementeDeCopiat);
-
-    dezalocare(&primeleElemente, &nrElementeDeCopiat);
-
-    struct SectiePolitie* sectiiFiltrate = NULL;
-    int nrSectiiFiltrate = 0;
-
-    copiazaSectiiCuBugetMare(listaSectii,
-        nrTotalSectii,
-        300000,
-        &sectiiFiltrate,
-        &nrSectiiFiltrate);
-
-    printf("\nSECTII CU BUGET > 300000:\n");
-    afisareVector(sectiiFiltrate, nrSectiiFiltrate);
-
-    dezalocare(&sectiiFiltrate, &nrSectiiFiltrate);
-
-    dezalocare(&listaSectii, &nrTotalSectii);
-
-    return 0;
-}
+//int main() {
+//
+//    int nrTotalSectii = 5;
+//
+//    struct SectiePolitie* listaSectii =
+//        (struct SectiePolitie*)malloc(sizeof(struct SectiePolitie) * nrTotalSectii);
+//
+//    listaSectii[0] = initializare(1, 120, "Sectia Centrala", 500000.5, 1);
+//    listaSectii[1] = initializare(2, 85, "Sectia Nord", 320000.0, 2);
+//    listaSectii[2] = initializare(3, 60, "Sectia Sud", 210000.3, 3);
+//    listaSectii[3] = initializare(4, 150, "Sectia Vest", 800000.7, 4);
+//    listaSectii[4] = initializare(5, 95, "Sectia Est", 450000.2, 5);
+//
+//    printf("VECTOR INITIAL:\n");
+//    afisareVector(listaSectii, nrTotalSectii);
+//
+//    int nrElementeDeCopiat = 3;
+//    struct SectiePolitie* primeleElemente =
+//        copiazaPrimeleNElemente(listaSectii,
+//            nrTotalSectii,
+//            nrElementeDeCopiat);
+//
+//    printf("\nPRIMELE %d ELEMENTE COPIATE:\n", nrElementeDeCopiat);
+//    afisareVector(primeleElemente, nrElementeDeCopiat);
+//
+//    dezalocare(&primeleElemente, &nrElementeDeCopiat);
+//
+//    struct SectiePolitie* sectiiFiltrate = NULL;
+//    int nrSectiiFiltrate = 0;
+//
+//    copiazaSectiiCuBugetMare(listaSectii,
+//        nrTotalSectii,
+//        300000,
+//        &sectiiFiltrate,
+//        &nrSectiiFiltrate);
+//
+//    printf("\nSECTII CU BUGET > 300000:\n");
+//    afisareVector(sectiiFiltrate, nrSectiiFiltrate);
+//
+//    dezalocare(&sectiiFiltrate, &nrSectiiFiltrate);
+//
+//    dezalocare(&listaSectii, &nrTotalSectii);
+//
+//    return 0;
+//}

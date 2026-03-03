@@ -1,160 +1,232 @@
 #define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
+
 #include <stdlib.h>
+
 #include <string.h>
 
-struct PartidPolitic {
-    int id;
-    int nrMembri;
-    char* denumire;
-    float procentSondaj;
-    char ideologie; 
+
+
+//trebuie sa folositi fisierul masini.txt
+
+//sau va creati un alt fisier cu alte date
+
+
+
+struct StructuraMasina {
+
+ int id;
+
+ int nrUsi;
+
+ float pret;
+
+ char* model;
+
+ char* numeSofer;
+
+ unsigned char serie;
+
 };
 
-struct PartidPolitic initializare(int id, int nrMembri, const char* denumire,
-    float procentSondaj, char ideologie) {
+typedef struct StructuraMasina Masina;
 
-    struct PartidPolitic p;
 
-    p.id = id;
-    p.nrMembri = nrMembri;
 
-    p.denumire = (char*)malloc(strlen(denumire) + 1);
-    strcpy(p.denumire, denumire);
+void afisareMasina(Masina masina) {
 
-    p.procentSondaj = procentSondaj;
-    p.ideologie = ideologie;
+ printf("ID:%d\n", masina.id);
 
-    return p;
+ printf("Numar usi:%d\n", masina.nrUsi);
+
+ printf("Pret:%.2f\n", masina.pret);
+
+ printf("Model:%s\n", masina.model);
+
+ printf("Nume sofer:%s\n", masina.numeSofer);
+
+ printf("Serie:%c\n\n", masina.serie);
+
 }
 
-struct PartidPolitic copiazaPartid(struct PartidPolitic sursa) {
-    return initializare(sursa.id, sursa.nrMembri,
-        sursa.denumire, sursa.procentSondaj, sursa.ideologie);
+
+
+void afisareVectorMasini(Masina* masini, int nrMasini) {
+
+ for (int i = 0; i < nrMasini; i++) {
+
+ afisareMasina(masini[i]);
+
+ }
+
 }
 
-void afisare(struct PartidPolitic p) {
-    printf("ID: %d\n", p.id);
-    printf("Nr membri: %d\n", p.nrMembri);
-    printf("Denumire: %s\n", p.denumire);
-    printf("Procent sondaj: %.2f%%\n", p.procentSondaj);
-    printf("Ideologie: %c\n\n", p.ideologie);
+
+
+void adaugaMasinaInVector(Masina** masini, int* nrMasini, Masina masinaNoua) {
+
+ Masina* aux = (Masina*)malloc(sizeof(Masina) * ((*nrMasini) + 1));
+
+ for (int i = 0; i < *nrMasini; i++) {
+
+ aux[i] = (*masini)[i];
+
+ }
+
+ aux[(*nrMasini)] = masinaNoua;//shallow copy
+
+ free(*masini);
+
+ (*masini) = aux;
+
+ (*nrMasini)++;
+
 }
 
-void afisareVector(struct PartidPolitic* vector, int nrElemente) {
-    for (int i = 0; i < nrElemente; i++) {
-        afisare(vector[i]);
-    }
+
+
+Masina citireMasinaFisier(FILE* file) {
+
+ Masina m;
+
+ char buffer[100];
+
+ char sep[4] = ",;\n";
+
+ fgets(buffer, 100, file);
+
+ m.id=atoi(strtok(buffer, sep));
+
+ m.nrUsi = atoi(strtok(NULL, sep));
+
+ m.pret = atof(strtok(NULL, sep));
+
+ char* aux;
+
+ aux = strtok(NULL, sep);
+
+ m.model = (char*)malloc(strlen(aux) + 1);
+
+ strcpy(m.model, aux);
+
+ aux = strtok(NULL, sep);
+
+ m.numeSofer = (char*)malloc(strlen(aux) + 1);
+
+ strcpy(m.numeSofer, aux);
+
+ m.serie = strtok(NULL, sep)[0];
+
+ return m;
+
 }
 
-struct PartidPolitic* copiazaPrimeleNElemente(
-    struct PartidPolitic* vector,
-    int nrElemente,
-    int nrElementeCopiate) {
 
-    if (nrElementeCopiate > nrElemente)
-        nrElementeCopiate = nrElemente;
 
-    struct PartidPolitic* vectorNou =
-        (struct PartidPolitic*)malloc(sizeof(struct PartidPolitic) * nrElementeCopiate);
+Masina* citireVectorMasiniFisier(const char* numeFisier, int* nrMasiniCitite) {
 
-    for (int i = 0; i < nrElementeCopiate; i++) {
-        vectorNou[i] = copiazaPartid(vector[i]);
-    }
+ FILE* file = fopen(numeFisier, "r");
 
-    return vectorNou;
+ Masina* masini = NULL;
+
+ (*nrMasiniCitite) = 0;
+
+ while (!feof(file)) {
+
+ adaugaMasinaInVector(&masini, nrMasiniCitite, citireMasinaFisier(file));
+
+ }
+
+ fclose(file);
+
+ return masini;
+
 }
 
-void dezalocare(struct PartidPolitic** vector, int* nrElemente) {
 
-    if (*vector != NULL) {
-        for (int i = 0; i < *nrElemente; i++) {
-            free((*vector)[i].denumire);
-        }
 
-        free(*vector);
-        *vector = NULL;
-        *nrElemente = 0;
-    }
-}
+ void dezalocareVectorMasini(Masina * *vector, int* nrMasini) {
+		for (int i = 0; i < *nrMasini; i++) {
+			if ((*vector)[i].model != NULL) {
+				free((*vector)[i].model);
+			}
+			if ((*vector)[i].numeSofer != NULL) {
+				free((*vector)[i].numeSofer);
+			}
+		}
+		free(*vector);
+		(*vector) = NULL;
+		(*nrMasini) = 0;
+	}
 
-void copiazaPartideCuProcentMare(
-    struct PartidPolitic* vector,
-    int nrElemente,
-    float procentMin,
-    struct PartidPolitic** vectorNou,
-    int* dimensiune) {
 
-    *dimensiune = 0;
 
-    for (int i = 0; i < nrElemente; i++) {
-        if (vector[i].procentSondaj > procentMin) {
-            (*dimensiune)++;
-        }
-    }
+//int main() {
+//
+// int nrMasini = 0;
+//
+// Masina* masini = citireVectorMasiniFisier("masini.txt", &nrMasini);
+//
+// afisareVectorMasini(masini, nrMasini);
+//
+// dezalocareVectorMasini(&masini, &nrMasini);
+//
+// return 0;
+//
+//}
 
-    *vectorNou = (struct PartidPolitic*)
-        malloc(sizeof(struct PartidPolitic) * (*dimensiune));
 
-    int contor = 0;
-
-    for (int i = 0; i < nrElemente; i++) {
-        if (vector[i].procentSondaj > procentMin) {
-            (*vectorNou)[contor++] = copiazaPartid(vector[i]);
-        }
-    }
-}
-
-struct PartidPolitic getPrimulElementConditionat(
-    struct PartidPolitic* vector,
-    int nrElemente,
-    const char* conditie) {
-
-    for (int i = 0; i < nrElemente; i++) {
-        if (strcmp(vector[i].denumire, conditie) == 0) {
-            return copiazaPartid(vector[i]);
-        }
-    }
-
-    return initializare(-1, 0, "Necunoscut", 0, '-');
-}
-
-int main() {
-
-    int nrTotalPartide = 5;
-
-    struct PartidPolitic* lista =
-        (struct PartidPolitic*)malloc(sizeof(struct PartidPolitic) * nrTotalPartide);
-
-    lista[0] = initializare(1, 50000, "Partid Liberal", 28.5, 'L');
-    lista[1] = initializare(2, 72000, "Partid Conservator", 32.1, 'C');
-    lista[2] = initializare(3, 31000, "Partid Verde", 12.4, 'V');
-    lista[3] = initializare(4, 45000, "Partid Socialist", 18.9, 'S');
-    lista[4] = initializare(5, 15000, "Partid National", 6.3, 'N');
-
-    printf("VECTOR INITIAL:\n");
-    afisareVector(lista, nrTotalPartide);
-
-    int nrCopiate = 3;
-    struct PartidPolitic* primele =
-        copiazaPrimeleNElemente(lista, nrTotalPartide, nrCopiate);
-
-    printf("\nPRIMELE %d PARTIDE:\n", nrCopiate);
-    afisareVector(primele, nrCopiate);
-
-    dezalocare(&primele, &nrCopiate);
-
-    struct PartidPolitic* filtrate = NULL;
-    int nrFiltrate = 0;
-
-    copiazaPartideCuProcentMare(lista, nrTotalPartide,
-        20.0, &filtrate, &nrFiltrate);
-
-    printf("\nPARTIDE CU PROCENT > 20%%:\n");
-    afisareVector(filtrate, nrFiltrate);
-
-    dezalocare(&filtrate, &nrFiltrate);
-    dezalocare(&lista, &nrTotalPartide);
-
-    return 0;
-}
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <string.h>
+//
+////trebuie sa folositi fisierul masini.txt
+////sau va creati un alt fisier cu alte date
+//
+//struct StructuraMasina {
+//	int id;
+//	int nrUsi;
+//	float pret;
+//	char* model;
+//	char* numeSofer;
+//	unsigned char serie;
+//};
+//typedef struct StructuraMasina Masina;
+//
+//void afisareMasina(Masina masina) {
+//	//afiseaza toate atributele unei masini
+//}
+//
+//void afisareVectorMasini(Masina* masini, int nrMasini) {
+//	//afiseaza toate elemente de tip masina din vector
+//	//prin apelarea functiei afisareMasina()
+//}
+//
+//void adaugaMasinaInVector(Masina** masini, int * nrMasini, Masina masinaNoua) {
+//	//adauga in vectorul primit o noua masina pe care o primim ca parametru
+//	//ATENTIE - se modifica numarul de masini din vector;
+//}
+//
+//Masina citireMasinaFisier(FILE* file) {
+//	//functia citeste o masina dintr-un strceam deja deschis
+//	//masina citita este returnata;
+//}
+//
+//Masina* citireVectorMasiniFisier(const char* numeFisier, int* nrMasiniCitite) {
+//	//functia primeste numele fisierului, il deschide si citeste toate masinile din fisier
+//	//prin apelul repetat al functiei citireMasinaFisier()
+//	//numarul de masini este determinat prin numarul de citiri din fisier
+//	//ATENTIE - la final inchidem fisierul/stream-ul
+//}
+//
+//void dezalocareVectorMasini(Masina** vector, int* nrMasini) {
+//	//este dezalocat intreg vectorul de masini
+//}
+//
+//int main() {
+//
+//
+//	return 0;
+//}

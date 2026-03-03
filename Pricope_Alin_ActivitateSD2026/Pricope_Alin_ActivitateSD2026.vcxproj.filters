@@ -18,13 +18,10 @@
     <ClCompile Include="Seminar02.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Seminar02-Lucru_Acasa.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LucruAcasa.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Politică.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LISTE.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
