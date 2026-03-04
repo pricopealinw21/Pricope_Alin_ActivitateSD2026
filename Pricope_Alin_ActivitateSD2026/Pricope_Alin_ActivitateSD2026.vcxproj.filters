@@ -18,5 +18,8 @@
     <ClCompile Include="LISTE.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ListeBasic.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

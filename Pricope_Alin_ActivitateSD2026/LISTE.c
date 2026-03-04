@@ -74,27 +74,27 @@ void afisareLista(Nod* cap)
 
  }
 
-int main()
-{
-	Nod* cap = NULL;
-	adaugaInceput(&cap, 8);
-	adaugaInceput(&cap, 3);
-	adaugaInceput(&cap, 2);
-	adaugaInceput(&cap, 6);
-	adaugaInceput(&cap, 12);
-	adaugaInceput(&cap, 10);
-	adaugaInceput(&cap, 5); 
-	adaugaInceput(&cap, 3);
-	adaugaInceput(&cap, 7);
-
-	printf("lista initiala : ");
-	afisareLista(cap); 
-	 
-	eliminarePare(&cap);
-	 
-	 
-	printf("lista dupa eliminarea celor pare : "); 
-	afisareLista(cap); 
-
-	return 0; 
-}
+//int main()
+//{
+//	Nod* cap = NULL;
+//	adaugaInceput(&cap, 8);
+//	adaugaInceput(&cap, 3);
+//	adaugaInceput(&cap, 2);
+//	adaugaInceput(&cap, 6);
+//	adaugaInceput(&cap, 12);
+//	adaugaInceput(&cap, 10);
+//	adaugaInceput(&cap, 5); 
+//	adaugaInceput(&cap, 3);
+//	adaugaInceput(&cap, 7);
+//
+//	printf("lista initiala : ");
+//	afisareLista(cap); 
+//	 
+//	eliminarePare(&cap);
+//	 
+//	 
+//	printf("lista dupa eliminarea celor pare : "); 
+//	afisareLista(cap); 
+//
+//	return 0; 
+//}
