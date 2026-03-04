@@ -139,7 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Model_Seminar3_Acasa.cpp" />
+    <ClCompile Include="ConcatenareFisiere_Basic.c" />
+    <ClCompile Include="Model_Seminar3_Acasa.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="muzeu.txt" />

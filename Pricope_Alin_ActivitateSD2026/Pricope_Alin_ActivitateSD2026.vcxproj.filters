@@ -15,7 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Model_Seminar3_Acasa.cpp">
+    <ClCompile Include="Model_Seminar3_Acasa.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcatenareFisiere_Basic.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
