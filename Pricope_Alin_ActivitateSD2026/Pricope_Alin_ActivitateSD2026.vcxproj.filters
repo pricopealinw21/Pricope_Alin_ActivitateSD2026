@@ -15,11 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LISTE.c">
+    <ClCompile Include="Model_Seminar3_Acasa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ListeBasic.c">
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="muzeu.txt">
       <Filter>Source Files</Filter>
-    </ClCompile>
+    </Text>
   </ItemGroup>
 </Project>

@@ -98,3 +98,5 @@ void afisareLista(Nod* cap)
 //
 //	return 0; 
 //}
+
+

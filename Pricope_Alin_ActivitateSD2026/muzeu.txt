@@ -1,0 +1,3 @@
+1,1990,15000.5,MonaLisa,DaVinci,A
+2,2005,23000.0,NoapteInstelata,VanGogh,B
+3,2010,12000.75,Tipatul,Munch,C

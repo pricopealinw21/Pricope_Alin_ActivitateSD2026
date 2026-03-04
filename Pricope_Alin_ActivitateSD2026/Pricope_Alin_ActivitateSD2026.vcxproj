@@ -139,8 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="LISTE.c" />
-    <ClCompile Include="ListeBasic.c" />
+    <ClCompile Include="Model_Seminar3_Acasa.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="muzeu.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
