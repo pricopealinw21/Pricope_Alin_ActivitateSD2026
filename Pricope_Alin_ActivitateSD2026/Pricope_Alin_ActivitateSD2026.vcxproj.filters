@@ -21,6 +21,9 @@
     <ClCompile Include="ConcatenareFisiere_Basic.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Seminar3Filme.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="muzeu.txt">

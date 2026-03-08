@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="ConcatenareFisiere_Basic.c" />
     <ClCompile Include="Model_Seminar3_Acasa.c" />
+    <ClCompile Include="Seminar3Filme.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="muzeu.txt" />
