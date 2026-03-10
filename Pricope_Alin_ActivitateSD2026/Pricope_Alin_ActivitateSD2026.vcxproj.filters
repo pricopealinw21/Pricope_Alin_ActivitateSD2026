@@ -15,19 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Model_Seminar3_Acasa.c">
+    <ClCompile Include="LIsteExercitiiATM.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ConcatenareFisiere_Basic.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Seminar3Filme.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="muzeu.txt">
-      <Filter>Source Files</Filter>
-    </Text>
   </ItemGroup>
 </Project>
