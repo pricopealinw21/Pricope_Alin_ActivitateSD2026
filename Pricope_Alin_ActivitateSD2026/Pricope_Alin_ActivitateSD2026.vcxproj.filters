@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LIsteExercitiiATM.c">
+    <ClCompile Include="Semianr04-Acasa-muzeu.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
