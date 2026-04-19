@@ -18,5 +18,8 @@
     <ClCompile Include="supermarketSeminarCoziStiva.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BucurestiStiveCozi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
