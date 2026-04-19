@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BucurestiStiveCozi.c" />
+    <ClCompile Include="ScoalaTabelaDispersie.c" />
     <ClCompile Include="supermarketSeminarCoziStiva.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

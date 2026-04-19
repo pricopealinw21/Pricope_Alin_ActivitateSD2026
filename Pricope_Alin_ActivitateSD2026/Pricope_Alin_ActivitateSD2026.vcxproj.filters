@@ -21,5 +21,8 @@
     <ClCompile Include="BucurestiStiveCozi.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ScoalaTabelaDispersie.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
