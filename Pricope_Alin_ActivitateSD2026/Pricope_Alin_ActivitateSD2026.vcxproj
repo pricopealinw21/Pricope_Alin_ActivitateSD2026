@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="HartaBucuresti.c" />
     <ClCompile Include="Muzeu.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

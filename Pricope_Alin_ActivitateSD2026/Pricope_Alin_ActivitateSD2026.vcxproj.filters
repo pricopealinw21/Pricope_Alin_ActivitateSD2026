@@ -18,5 +18,8 @@
     <ClCompile Include="Muzeu.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HartaBucuresti.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
