@@ -19,9 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BucurestiStiveCozi.c" />
-    <ClCompile Include="ScoalaTabelaDispersie.c" />
-    <ClCompile Include="supermarketSeminarCoziStiva.c" />
+    <ClCompile Include="Muzeu.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

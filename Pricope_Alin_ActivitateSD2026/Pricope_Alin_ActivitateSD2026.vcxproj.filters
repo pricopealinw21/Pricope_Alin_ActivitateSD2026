@@ -15,13 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="supermarketSeminarCoziStiva.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BucurestiStiveCozi.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ScoalaTabelaDispersie.c">
+    <ClCompile Include="Muzeu.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
