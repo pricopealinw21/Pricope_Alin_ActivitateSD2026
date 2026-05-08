@@ -27,5 +27,8 @@
     <ClCompile Include="ArboreShannon-FANO.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GrafuriReteaSociala.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

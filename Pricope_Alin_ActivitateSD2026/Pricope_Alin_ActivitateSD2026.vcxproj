@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="ArboreShannon-FANO.c" />
     <ClCompile Include="ArboriEchilibrati.c" />
+    <ClCompile Include="GrafuriReteaSociala.c" />
     <ClCompile Include="HartaBucuresti.c" />
     <ClCompile Include="Muzeu.c" />
   </ItemGroup>
